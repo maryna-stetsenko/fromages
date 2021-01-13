@@ -1,5 +1,5 @@
 ## Datavisualisation des fromages français
-Carte des fromages selon le département
+Carte des fromages selon le département (cluster et choroplèthe)
 <iframe frameborder="0" width="800" height="600" src="https://data.opendatasoft.com/map/embed/carte_des_fromages_francais/?&static=false&scrollWheelZoom=false"></iframe>
 
 Datavisualisation des fromages selon le type de lait
