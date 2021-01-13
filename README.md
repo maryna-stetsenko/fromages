@@ -1,4 +1,10 @@
 ## Datavisualisation des fromages français
+
+Visualisation des données:
+
+<iframe src="https://data.opendatasoft.com/explore/embed/dataset/fromagescsv-fromagescsv@public/table/?disjunctive.fromage&static=false&datasetcard=false" width="400" height="300" frameborder="0"></iframe>
+
+
 Carte des fromages selon le département (cluster et choroplèthe)
 <iframe frameborder="0" width="800" height="600" src="https://data.opendatasoft.com/map/embed/carte_des_fromages_francais/?&static=false&scrollWheelZoom=false"></iframe>
 
