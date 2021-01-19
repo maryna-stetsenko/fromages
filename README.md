@@ -1,5 +1,9 @@
 ## Datavisualisation des fromages français
 
+Test 19/01/2021
+
+<div class="flourish-embed flourish-chart" data-src="visualisation/4874798"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+
 Visualisation des données:
 
 <iframe src="https://data.opendatasoft.com/explore/embed/dataset/fromagescsv-fromagescsv@public/table/?disjunctive.fromage&static=false&datasetcard=false" width="400" height="300" frameborder="0"></iframe>
