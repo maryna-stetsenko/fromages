@@ -1,6 +1,6 @@
-## Exo sur Monet
+## Exo sur Monet (Wikidata Query)
 
-Afficher juste les peintures de Monet 
+1. Afficher juste les peintures de Monet 
 
 ```
 SELECT DISTINCT ?peinture WHERE {
@@ -9,7 +9,7 @@ SELECT DISTINCT ?peinture WHERE {
 }
 ```
 
-Afficher en plus les labels et les images associées 
+2. Afficher en plus les labels et les images associées 
 
 ```
 SELECT DISTINCT ?peinture ?peintureLabel ?image WHERE {
@@ -20,7 +20,7 @@ SELECT DISTINCT ?peinture ?peintureLabel ?image WHERE {
                            }
 ```
 
-Affichr les collections/lieux de conservation
+3. Affichr les collections/lieux de conservation
 ```
 SELECT DISTINCT ?peinture ?peintureLabel ?image ?collection WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
@@ -32,7 +32,7 @@ SELECT DISTINCT ?peinture ?peintureLabel ?image ?collection WHERE {
 ```
 Comment préciser que les lieux de conservation nous intéressent aussi?
 
-Compter le nombre de Monet dans chaque collection/lieux de conservation et les afficher par ordre décroissant 
+4. Compter le nombre de Monet dans chaque collection/lieux de conservation et les afficher par ordre décroissant 
 ```
 SELECT DISTINCT ?peinture ?peintureLabel ?image ?collectionLabel (COUNT(?collection) AS ?count) 
 
