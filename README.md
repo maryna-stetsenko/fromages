@@ -1,21 +1,21 @@
 ##Exo sur Monet
 Afficher juste les peintures de Monet 
 
-'''SELECT DISTINCT ?peinture WHERE {
+''SELECT DISTINCT ?peinture WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
           wdt:P170 wd:Q296; # de Monet
-}'''
+}''
 
 Afficher en plus les labels et les images associées 
 
-'''SELECT DISTINCT ?peinture ?peintureLabel ?image WHERE {
+''SELECT DISTINCT ?peinture ?peintureLabel ?image WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
           wdt:P170 wd:Q296; # de Monet
     OPTIONAL { ?peinture wdt:P18 ?image } # avec une image si possible
     SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]" }
-                           }'''
+                           }''
 
-'''
+''
 # avec en option (via OPTIONAL) les collections/lieux de conservation
 SELECT DISTINCT ?peinture ?peintureLabel ?image ?collection WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
@@ -24,10 +24,10 @@ SELECT DISTINCT ?peinture ?peintureLabel ?image ?collection WHERE {
              ?peinture wdt:P195/wdt:P361* ?collection } # avec une image (si possible) et qui fait partie d'une collection si possible 
     SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]" }
                             }
-'''
+''
 Comment préciser que les lieux de conservation nous intéressent aussi?
 
-'''
+''
 # compter le nombre de Monet dans chaque collection/lieux de conservation et les afficher par ordre décroissant 
 SELECT DISTINCT ?peinture ?peintureLabel ?image ?collectionLabel (COUNT(?collection) AS ?count) 
 
@@ -38,7 +38,7 @@ WHERE {
     SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]" }
                             }
 ORDER BY DESC(?collection)
-'''
+''
 Je n'ai pas réussi la dernière requête.
 
 
