@@ -1,4 +1,5 @@
-##Exo sur Monet
+#Exo sur Monet
+
 Afficher juste les peintures de Monet 
 
 ```
@@ -19,8 +20,8 @@ SELECT DISTINCT ?peinture ?peintureLabel ?image WHERE {
                            }
 ```
 
+Affichr les collections/lieux de conservation
 ```
-# avec en option (via OPTIONAL) les collections/lieux de conservation
 SELECT DISTINCT ?peinture ?peintureLabel ?image ?collection WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
           wdt:P170 wd:Q296; # de Monet
@@ -31,8 +32,8 @@ SELECT DISTINCT ?peinture ?peintureLabel ?image ?collection WHERE {
 ```
 Comment préciser que les lieux de conservation nous intéressent aussi?
 
+Compter le nombre de Monet dans chaque collection/lieux de conservation et les afficher par ordre décroissant 
 ```
-# compter le nombre de Monet dans chaque collection/lieux de conservation et les afficher par ordre décroissant 
 SELECT DISTINCT ?peinture ?peintureLabel ?image ?collectionLabel (COUNT(?collection) AS ?count) 
 
 WHERE {
