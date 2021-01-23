@@ -30,6 +30,7 @@ SELECT DISTINCT ?peinture ?peintureLabel ?image ?collection WHERE {
     SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]" }
                             }
 ```
+
 Comment préciser que les lieux de conservation nous intéressent aussi?
 
 * Compter le nombre de Monet dans chaque collection/lieux de conservation et les afficher par ordre décroissant 
@@ -50,7 +51,7 @@ Je n'ai pas réussi la dernière requête.
 
 
 
-## Datavisualisation des fromages français
+## Datavisualisation des fromages français (OpenDataSoft)
 
 Visualisation des données:
 
