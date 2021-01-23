@@ -1,4 +1,4 @@
-#Exo sur Monet
+## Exo sur Monet
 
 Afficher juste les peintures de Monet 
 
