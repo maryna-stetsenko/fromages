@@ -33,6 +33,7 @@ SELECT DISTINCT ?peinture ?peintureLabel ?image ?collection WHERE {
 Comment préciser que les lieux de conservation nous intéressent aussi?
 
 * Compter le nombre de Monet dans chaque collection/lieux de conservation et les afficher par ordre décroissant 
+
 ```
 SELECT DISTINCT ?peinture ?peintureLabel ?image ?collectionLabel (COUNT(?collection) AS ?count) 
 
