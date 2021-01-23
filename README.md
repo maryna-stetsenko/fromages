@@ -1,5 +1,5 @@
 ##Exo sur Monet
-'''SparQL
+'''
 # juste les peintures de Monet 
 SELECT DISTINCT ?peinture WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
@@ -7,17 +7,17 @@ SELECT DISTINCT ?peinture WHERE {
 }
 '''
 
-'''SparQL
+'''
 # avec les labels (via le service wikibase:label) et les images associées 
 SELECT DISTINCT ?peinture ?peintureLabel ?image WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
           wdt:P170 wd:Q296; # de Monet
     OPTIONAL { ?peinture wdt:P18 ?image } # avec une image si possible
     SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]" }
-                            } 
+                           } 
 '''
 
-'''SparQL
+'''
 # avec en option (via OPTIONAL) les collections/lieux de conservation
 SELECT DISTINCT ?peinture ?peintureLabel ?image ?collection WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
@@ -29,7 +29,7 @@ SELECT DISTINCT ?peinture ?peintureLabel ?image ?collection WHERE {
 '''
 Comment préciser que les lieux de conservation nous intéressent aussi?
 
-'''SparQL
+'''
 # compter le nombre de Monet dans chaque collection/lieux de conservation et les afficher par ordre décroissant 
 SELECT DISTINCT ?peinture ?peintureLabel ?image ?collectionLabel (COUNT(?collection) AS ?count) 
 
