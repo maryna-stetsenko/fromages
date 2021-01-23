@@ -1,21 +1,19 @@
 ##Exo sur Monet
-'''
-# juste les peintures de Monet 
-SELECT DISTINCT ?peinture WHERE {
+Afficher juste les peintures de Monet 
+
+'''SELECT DISTINCT ?peinture WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
           wdt:P170 wd:Q296; # de Monet
-}
-'''
+}'''
 
-'''
-# avec les labels (via le service wikibase:label) et les images associées 
-SELECT DISTINCT ?peinture ?peintureLabel ?image WHERE {
+Afficher en plus les labels et les images associées 
+
+'''SELECT DISTINCT ?peinture ?peintureLabel ?image WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
           wdt:P170 wd:Q296; # de Monet
     OPTIONAL { ?peinture wdt:P18 ?image } # avec une image si possible
     SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]" }
-                           } 
-'''
+                           }'''
 
 '''
 # avec en option (via OPTIONAL) les collections/lieux de conservation
