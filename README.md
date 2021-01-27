@@ -3,6 +3,7 @@
 * Afficher juste les peintures de Monet 
 
 ```sparql
+
 SELECT DISTINCT ?peinture WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
           wdt:P170 wd:Q296; # de Monet
@@ -45,7 +46,7 @@ Comment préciser que les lieux de conservation nous intéressent aussi?
 * Compter le nombre de Monet dans chaque collection/lieux de conservation et les afficher par ordre décroissant 
 
 ```sparql
-SELECT DISTINCT ?peinture ?peintureLabel ?image ?collectionLabel (COUNT(?collection) AS ?count) 
+SELECT DISTINCT ?collectionLabel (COUNT(?peinture) AS ?count) 
 
 WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
@@ -53,11 +54,17 @@ WHERE {
     OPTIONAL {?peinture wdt:P195/wdt:P361* ?collection } # fait partie d'une collection si possible 
     SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]" }
                             }
+GROUP BY ?collectionLabel                            
 ORDER BY DESC(?collection)
 ```
-Je n'ai pas réussi la dernière requête.
 
 ### Résultat
+
+<iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#SELECT%20DISTINCT%20%3FcollectionLabel%20%28COUNT%28%3Fpeinture%29%20AS%20%3Fcount%29%20%0A%0AWHERE%20%7B%0A%20%20%20%20%3Fpeinture%20wdt%3AP31%20wd%3AQ3305213%20%3B%20%23%20C%27est%20une%20peinture%0A%20%20%20%20%20%20%20%20%20%20wdt%3AP170%20wd%3AQ296%3B%20%23%20de%20Monet%0A%20%20%20%20OPTIONAL%20%7B%3Fpeinture%20wdt%3AP195%2Fwdt%3AP361%2a%20%3Fcollection%20%7D%20%23%20fait%20partie%20d%27une%20collection%20si%20possible%20%0A%20%20%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%22%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0AGROUP%20BY%20%3FcollectionLabel%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0AORDER%20BY%20DESC%28%3Fcollection%29" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups" ></iframe>
+
+
+
+
 
 
 
