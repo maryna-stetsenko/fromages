@@ -2,16 +2,19 @@
 
 * Afficher juste les peintures de Monet 
 
-```
+```sparql
 SELECT DISTINCT ?peinture WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
           wdt:P170 wd:Q296; # de Monet
 }
-```sparql
+```
+### Résultat
+<iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#SELECT%20DISTINCT%20%3Fpeinture%20WHERE%20%7B%0A%20%20%20%20%3Fpeinture%20wdt%3AP31%20wd%3AQ3305213%20%3B%20%23%20C%27est%20une%20peinture%0A%20%20%20%20%20%20%20%20%20%20wdt%3AP170%20wd%3AQ296%3B%20%23%20de%20Monet%0A%7D" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups" ></iframe>
+
 
 * Afficher en plus les labels et les images associées 
 
-```
+```sparql
 SELECT DISTINCT ?peinture ?peintureLabel ?image WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
           wdt:P170 wd:Q296; # de Monet
@@ -19,6 +22,8 @@ SELECT DISTINCT ?peinture ?peintureLabel ?image WHERE {
     SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]" }
                            }
 ```
+### Résultat
+<iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#SELECT%20DISTINCT%20%3Fpeinture%20%3FpeintureLabel%20%3Fimage%20WHERE%20%7B%0A%20%20%20%20%3Fpeinture%20wdt%3AP31%20wd%3AQ3305213%20%3B%20%23%20C%27est%20une%20peinture%0A%20%20%20%20%20%20%20%20%20%20wdt%3AP170%20wd%3AQ296%3B%20%23%20de%20Monet%0A%20%20%20%20OPTIONAL%20%7B%20%3Fpeinture%20wdt%3AP18%20%3Fimage%20%7D%20%23%20avec%20une%20image%20si%20possible%0A%20%20%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%22%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups" ></iframe>
 
 * Affichr les collections/lieux de conservation
 ```sparql
@@ -32,6 +37,10 @@ SELECT DISTINCT ?peinture ?peintureLabel ?image ?collection WHERE {
 ```
 
 Comment préciser que les lieux de conservation nous intéressent aussi?
+
+### Résultat
+<iframe style="width: 80vw; height: 50vh; border: none;" src="https://query.wikidata.org/embed.html#SELECT%20DISTINCT%20%3Fpeinture%20%3FpeintureLabel%20%3Fimage%20%3Fcollection%20WHERE%20%7B%0A%20%20%20%20%3Fpeinture%20wdt%3AP31%20wd%3AQ3305213%20%3B%20%23%20C%27est%20une%20peinture%0A%20%20%20%20%20%20%20%20%20%20wdt%3AP170%20wd%3AQ296%3B%20%23%20de%20Monet%0A%20%20%20%20OPTIONAL%20%7B%20%3Fpeinture%20wdt%3AP18%20%3Fimage%20.%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%3Fpeinture%20wdt%3AP195%2Fwdt%3AP361%2a%20%3Fcollection%20%7D%20%23%20avec%20une%20image%20%28si%20possible%29%20et%20qui%20fait%20partie%20d%27une%20collection%20si%20possible%20%0A%20%20%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%22%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups" ></iframe>
+
 
 * Compter le nombre de Monet dans chaque collection/lieux de conservation et les afficher par ordre décroissant 
 
@@ -47,6 +56,10 @@ WHERE {
 ORDER BY DESC(?collection)
 ```
 Je n'ai pas réussi la dernière requête.
+
+### Résultat
+
+
 
 
 
