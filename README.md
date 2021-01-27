@@ -7,7 +7,7 @@ SELECT DISTINCT ?peinture WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
           wdt:P170 wd:Q296; # de Monet
 }
-```
+```sparql
 
 * Afficher en plus les labels et les images associées 
 
@@ -21,7 +21,7 @@ SELECT DISTINCT ?peinture ?peintureLabel ?image WHERE {
 ```
 
 * Affichr les collections/lieux de conservation
-```
+```sparql
 SELECT DISTINCT ?peinture ?peintureLabel ?image ?collection WHERE {
     ?peinture wdt:P31 wd:Q3305213 ; # C'est une peinture
           wdt:P170 wd:Q296; # de Monet
@@ -35,7 +35,7 @@ Comment préciser que les lieux de conservation nous intéressent aussi?
 
 * Compter le nombre de Monet dans chaque collection/lieux de conservation et les afficher par ordre décroissant 
 
-```
+```sparql
 SELECT DISTINCT ?peinture ?peintureLabel ?image ?collectionLabel (COUNT(?collection) AS ?count) 
 
 WHERE {
